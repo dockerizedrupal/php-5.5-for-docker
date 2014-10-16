@@ -36,4 +36,3 @@
 
       Action php /php52
     </IfModule>
-
