@@ -3,7 +3,7 @@ class php {
 
   file { '/phpfarm/src/custom-options-5.5.17-dev.sh':
     ensure => present,
-    source => '/tmp/build/phpfarm/src/custom-options-5.5.17-dev.sh',
+    source => '/phpfarm/phpfarm/src/custom-options-5.5.17-dev.sh',
     mode => 755,
     require => Class['phpfarm']
   }
@@ -20,21 +20,21 @@ class php {
 
   file { '/phpfarm/inst/php-5.5.17-dev/etc/php-fpm.conf':
     ensure => present,
-    source => '/tmp/build/phpfarm/inst/php-5.5.17-dev/etc/php-fpm.conf',
+    source => '/phpfarm/phpfarm/inst/php-5.5.17-dev/etc/php-fpm.conf',
     mode => 644,
     require => Exec['/phpfarm/src/compile.sh 5.5.17-dev']
   }
 
   file { '/phpfarm/inst/php-5.5.17-dev/lib/php.ini':
     ensure => present,
-    source => '/tmp/build/phpfarm/inst/php-5.5.17-dev/lib/php.ini',
+    source => '/phpfarm/phpfarm/inst/php-5.5.17-dev/lib/php.ini',
     mode => 644,
     require => Exec['/phpfarm/src/compile.sh 5.5.17-dev']
   }
 
   file { '/etc/profile.d/phpfarm.sh':
     ensure => present,
-    source => '/tmp/build/etc/profile.d/phpfarm.sh',
+    source => '/phpfarm/etc/profile.d/phpfarm.sh',
     mode => 755,
     require => Exec['/phpfarm/src/compile.sh 5.5.17-dev']
   }
