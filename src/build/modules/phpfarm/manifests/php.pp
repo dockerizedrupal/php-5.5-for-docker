@@ -1,4 +1,4 @@
-class php {
+class phpfarm::php {
   include phpfarm
 
   file { '/phpfarm/src/custom-options-5.5.17-dev.sh':
