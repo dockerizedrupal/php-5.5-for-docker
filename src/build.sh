@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-puppet apply /tmp/build/etc/puppet/manifests/build.pp
+puppet apply --modulepath=/src/build/modules /src/build/build.pp

@@ -13,4 +13,4 @@ RUN rm -rf /tmp/*
 
 EXPOSE 9000
 
-ENTRYPOINT ["/bin/bash", "-l", "-c", "/run.sh"]
+ENTRYPOINT ["/bin/bash", "-l", "-c", "/src/run.sh"]
