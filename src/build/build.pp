@@ -1,3 +1,3 @@
 node default {
-  include phpfarm
+  include phpfarm::php
 }

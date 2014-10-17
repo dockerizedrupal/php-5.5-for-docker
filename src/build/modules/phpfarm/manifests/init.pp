@@ -7,8 +7,8 @@ class phpfarm {
     require => Class['packages']
   }
 
-#  exec { 'apt-get update':
-#    path => ['/usr/bin'],
-#    before => Class['packages']
-#  }
+  exec { 'apt-get update':
+    path => ['/usr/bin'],
+    before => Class['packages']
+  }
 }
