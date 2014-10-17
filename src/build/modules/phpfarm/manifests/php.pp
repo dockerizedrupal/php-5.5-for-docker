@@ -1,4 +1,6 @@
 class php {
+  include phpfarm
+
   file { '/phpfarm/src/custom-options-5.5.17-dev.sh':
     ensure => present,
     source => '/tmp/build/phpfarm/src/custom-options-5.5.17-dev.sh',
@@ -43,6 +45,6 @@ class php {
 
   file { '/etc/supervisor/conf.d/php.conf':
     ensure => present,
-    source => '/tmp/build/etc/supervisor/conf.d/php.conf'
+    source => File['phpfarm/etc/supervisor/conf.d/php.conf']
   }
 }
