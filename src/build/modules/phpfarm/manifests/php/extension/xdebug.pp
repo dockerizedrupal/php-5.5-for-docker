@@ -1,4 +1,4 @@
-class xdebug {
+class phpfarm::php::extension::xdebug {
   exec { 'wget http://xdebug.org/files/xdebug-2.2.5.tgz':
     cwd => '/tmp',
     path => ['/usr/bin'],

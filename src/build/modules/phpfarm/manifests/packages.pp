@@ -1,4 +1,4 @@
-class packages {
+class phpfarm::packages {
     package {[
       'git',
       'curl',
