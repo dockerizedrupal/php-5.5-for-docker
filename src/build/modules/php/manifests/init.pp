@@ -25,21 +25,21 @@ class php {
 
   file { '/phpfarm/inst/php-5.5.17/etc/php-fpm.conf':
     ensure => present,
-    source => 'puppet:///modules/phpfarm/phpfarm/inst/php-5.5.17/etc/php-fpm.conf',
+    source => 'puppet:///modules/php/phpfarm/inst/php-5.5.17/etc/php-fpm.conf',
     mode => 644,
     require => Exec['/phpfarm/src/compile.sh 5.5.17']
   }
 
   file { '/phpfarm/inst/php-5.5.17/lib/php.ini':
     ensure => present,
-    source => 'puppet:///modules/phpfarm/phpfarm/inst/php-5.5.17/lib/php.ini',
+    source => 'puppet:///modules/php/phpfarm/inst/php-5.5.17/lib/php.ini',
     mode => 644,
     require => Exec['/phpfarm/src/compile.sh 5.5.17']
   }
 
   file { '/etc/profile.d/phpfarm.sh':
     ensure => present,
-    source => 'puppet:///modules/phpfarm/etc/profile.d/phpfarm.sh',
+    source => 'puppet:///modules/php/etc/profile.d/phpfarm.sh',
     mode => 755,
     require => Exec['/phpfarm/src/compile.sh 5.5.17']
   }
@@ -50,6 +50,6 @@ class php {
 
   file { '/etc/supervisor/conf.d/php.conf':
     ensure => present,
-    source => 'puppet:///modules/phpfarm/etc/supervisor/conf.d/php.conf'
+    source => 'puppet:///modules/php/etc/supervisor/conf.d/php.conf'
   }
 }
