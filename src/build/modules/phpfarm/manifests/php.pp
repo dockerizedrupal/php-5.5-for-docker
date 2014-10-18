@@ -3,7 +3,7 @@ class phpfarm::php {
 
   file { '/phpfarm/src/custom-options-5.5.17-dev.sh':
     ensure => present,
-    source => 'puppet://modules/phpfarm/custom-options-5.5.17-dev.sh',
+    source => 'puppet:///modules/phpfarm/custom-options-5.5.17-dev.sh',
     mode => 755,
     require => Class['phpfarm']
   }
