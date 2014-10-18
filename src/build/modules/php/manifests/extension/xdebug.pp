@@ -1,5 +1,5 @@
-class phpfarm::php::extension::xdebug {
-  require phpfarm::php
+class php::extension::xdebug {
+  require php
 
   exec { 'wget http://xdebug.org/files/xdebug-2.2.5.tgz':
     cwd => '/tmp',

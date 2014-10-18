@@ -1,4 +1,4 @@
-class phpfarm::packages {
+class php::packages {
   exec { 'apt-get update':
     path => ['/usr/bin']
   }

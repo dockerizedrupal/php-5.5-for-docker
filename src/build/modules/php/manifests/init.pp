@@ -1,10 +1,16 @@
-class phpfarm::php {
-  require phpfarm
+class php {
+  require php::packages
+
+  exec { 'git clone git://git.code.sf.net/p/phpfarm/code phpfarm':
+    cwd => '/',
+    path => ['/usr/bin']
+  }
 
   file { '/phpfarm/src/custom-options-5.5.17.sh':
     ensure => present,
     source => 'puppet:///modules/phpfarm/phpfarm/src/custom-options-5.5.17.sh',
-    mode => 755
+    mode => 755,
+    require => Exec['git clone git://git.code.sf.net/p/phpfarm/code phpfarm']
   }
 
   exec { '/phpfarm/src/compile.sh 5.5.17':
