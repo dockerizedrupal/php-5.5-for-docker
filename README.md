@@ -2,7 +2,7 @@
 
 ## Run the container
 
-    CONTAINER=php55-dev && sudo docker run \
+    CONTAINER="php55-dev" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
