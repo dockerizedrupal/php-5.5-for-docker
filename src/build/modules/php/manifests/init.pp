@@ -8,7 +8,7 @@ class php {
 
   file { '/phpfarm/src/custom-options-5.5.17.sh':
     ensure => present,
-    source => 'puppet:///modules/phpfarm/phpfarm/src/custom-options-5.5.17.sh',
+    source => 'puppet:///modules/php/phpfarm/src/custom-options-5.5.17.sh',
     mode => 755,
     require => Exec['git clone git://git.code.sf.net/p/phpfarm/code phpfarm']
   }
