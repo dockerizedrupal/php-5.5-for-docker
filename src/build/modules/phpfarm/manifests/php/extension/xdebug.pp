@@ -1,10 +1,9 @@
 class phpfarm::php::extension::xdebug {
-  include phpfarm::php
+  require phpfarm::php
 
   exec { 'wget http://xdebug.org/files/xdebug-2.2.5.tgz':
     cwd => '/tmp',
-    path => ['/usr/bin'],
-    require => Class['phpfarm::php']
+    path => ['/usr/bin']
   }
 
   exec { 'tar xzf xdebug-2.2.5.tgz':
