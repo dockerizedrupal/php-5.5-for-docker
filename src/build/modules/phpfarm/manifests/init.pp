@@ -1,9 +1,8 @@
 class phpfarm {
-  include phpfarm::packages
+  require phpfarm::packages
 
   exec { 'git clone git://git.code.sf.net/p/phpfarm/code phpfarm':
     cwd => '/',
-    path => ['/usr/bin'],
-    require => Class['phpfarm::packages']
+    path => ['/usr/bin']
   }
 }
