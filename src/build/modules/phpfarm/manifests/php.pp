@@ -10,7 +10,7 @@ class phpfarm::php {
 
   exec { '/phpfarm/src/compile.sh 5.5.17-dev':
     timeout => 0,
-    require => 'puppet:///modules/phpfarm/src/custom-options-5.5.17-dev.sh'
+    require => File['/phpfarm/src/custom-options-5.5.17-dev.sh']
   }
 
   exec { 'rm -rf /phpfarm/src/php-5.5.17-dev':
