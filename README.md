@@ -1,4 +1,4 @@
-# docker-php-5.5.17-dev
+# docker-php-5.5-dev
 
 ## Run the container
 
@@ -9,15 +9,15 @@
       --link mailcatcher:ssmtp \
       -v /var/www:/var/www \
       -d \
-      simpledrupalcloud/php:5.5.17-dev
+      simpledrupalcloud/php:5.5-dev
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 5.5.17-dev \
-      && sudo docker build -t simpledrupalcloud/php:5.5.17-dev . \
+      && git checkout 5.5-dev \
+      && sudo docker build -t simpledrupalcloud/php:5.5-dev . \
       && cd -
 
 ## Apache directives
