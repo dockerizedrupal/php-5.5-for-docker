@@ -1,11 +1,10 @@
 class phpfarm::php {
-  include phpfarm
+  require phpfarm
 
   file { '/phpfarm/src/custom-options-5.5.17.sh':
     ensure => present,
     source => 'puppet:///modules/phpfarm/phpfarm/src/custom-options-5.5.17.sh',
-    mode => 755,
-    require => Class['phpfarm']
+    mode => 755
   }
 
   exec { '/phpfarm/src/compile.sh 5.5.17':
