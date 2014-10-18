@@ -1,5 +1,10 @@
 class phpfarm::packages {
-    package {[
+  exec { 'apt-get update':
+    path => ['/usr/bin'],
+    before => Class['phpfarm::packages']
+  }
+
+  package {[
       'git',
       'curl',
       'build-essential',
@@ -16,6 +21,7 @@ class phpfarm::packages {
       'autoconf',
       'libcloog-ppl0'
     ]:
-    ensure => present
+    ensure => present,
+    require => Exec['apt-get update']
   }
 }
