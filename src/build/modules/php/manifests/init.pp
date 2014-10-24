@@ -1,5 +1,6 @@
 class php {
   require php::packages
+  require php::supervisor
 
   exec { 'git clone git://git.code.sf.net/p/phpfarm/code phpfarm':
     cwd => '/',
@@ -46,10 +47,5 @@ class php {
 
   exec { '/bin/bash -l -c "switch-phpfarm 5.5.18"':
     require => File['/etc/profile.d/phpfarm.sh']
-  }
-
-  file { '/etc/supervisor/conf.d/php.conf':
-    ensure => present,
-    source => 'puppet:///modules/php/etc/supervisor/conf.d/php.conf'
   }
 }
