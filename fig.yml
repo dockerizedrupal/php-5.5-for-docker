@@ -1,5 +1,4 @@
 php55:
-  build: .
   image: simpledrupalcloud/php:5.5-dev
   hostname: php55
   ports:
