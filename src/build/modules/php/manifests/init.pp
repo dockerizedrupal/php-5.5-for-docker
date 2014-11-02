@@ -18,7 +18,7 @@ class php {
     ensure => present,
     source => 'puppet:///modules/php/phpfarm/src/custom/options-5.5.18.sh',
     mode => 755,
-    require => Exec['tar xzf php-5.5.18.tar.gz']
+    require => Exec['zcat php-5.5.18.tar.gz | tar xzf -']
   }
 
   exec { '/phpfarm/src/main.sh 5.5.18':
