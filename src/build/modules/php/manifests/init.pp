@@ -8,7 +8,7 @@ class php {
     source => 'puppet:///modules/php/phpfarm/src/php-5.5.18.tar.gz'
   }
 
-  exec { 'tar xzf php-5.5.18.tar.gz':
+  exec { 'zcat php-5.5.18.tar.gz | tar xzf -':
     cwd => '/phpfarm/src',
     path => ['/bin'],
     require => File['/phpfarm/src/php-5.5.18.tar.gz']
