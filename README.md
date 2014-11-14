@@ -1,17 +1,36 @@
-# docker-php-5.2.17
+# docker-php-5.5
 
-## Run the container
+A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.5.18 that runs PHP in FPM (FastCGI Process Manager) mode.
 
+## PHP 5.5.18 (STABLE BRANCH)
+
+### Run the container
+
+Using the `docker` command:
+
+    CONTAINER="data" && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
+      -v /var/www:/var/www \
+      simpledrupalcloud/data:latest
+      
     CONTAINER="php55" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
-      --link mailcatcher:ssmtp \
-      -v /var/www:/var/www \
+      --volumes-from data \
       -d \
       simpledrupalcloud/php:5.5
+      
+Using the `fig` command
 
-## Build the image
+    TMP="$(mktemp -d)" \
+      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git "${TMP}" \
+      && cd "${TMP}" \
+      && git checkout 5.5 \
+      && fig up
+
+### Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-php.git "${TMP}" \
@@ -20,19 +39,23 @@
       && sudo docker build -t simpledrupalcloud/php:5.5 . \
       && cd -
 
-## Apache directives
+### Apache directives
 
     <IfModule mod_fastcgi.c>
       AddHandler php .php
 
-      Alias /php52 /var/www/php52
-      FastCgiExternalServer /var/www/php52 -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
+      Alias /php55 /var/www/php55
+      FastCgiExternalServer /var/www/php55 -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
 
-      <Location /php52>
+      <Location /php55>
         Order deny,allow
         Deny from all
         Allow from env=REDIRECT_STATUS
       </Location>
 
-      Action php /php52
+      Action php /php55
     </IfModule>
+
+## License
+
+**MIT**
