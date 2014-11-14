@@ -1,12 +1,12 @@
 php55:
-  image: simpledrupalcloud/php:5.5-dev
+  image: simpledrupalcloud/php:5.5
   hostname: php55
   ports:
     - "9000:9000"
   volumes_from:
     - data
 data:
-  image: simpledrupalcloud/data:dev
+  image: simpledrupalcloud/data:latest
   hostname: data
   volumes:
     - /var/www:/var/www
