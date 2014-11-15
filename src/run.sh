@@ -14,6 +14,8 @@ if [ -z "${SSMTP_PORT_25_TCP}" ] && [ -n "${SSMTP_PORT_25_TCP_ADDR}" ] && [ -n "
   SSMTP_PORT_25_TCP="tcp://${SSMTP_PORT_25_TCP_ADDR}:${SSMTP_PORT_25_TCP_PORT}"
 fi
 
+export FACTER_SSMTP_PORT_25_TCP="$(echo "${SSMTP_PORT_25_TCP}" | sed 's/tcp:\/\///')"
+
 if [ -z "${MYSQL_PORT_3306_TCP}" ] && [ -n "${MYSQL_PORT_3306_TCP_ADDR}" ] && [ -n "${MYSQL_PORT_3306_TCP_PORT}" ]; then
   IP="$(dnsLookup "${MYSQL_PORT_3306_TCP_ADDR}")"
 
