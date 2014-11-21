@@ -14,6 +14,12 @@ class php {
     require => File['/phpfarm/src/php-5.5.18.tar.gz']
   }
 
+  exec { 'rm php-5.5.18.tar.gz':
+    cwd => '/phpfarm/src',
+    path => ['/bin'],
+    require => Exec['zcat php-5.5.18.tar.gz | tar xzf -']
+  }
+
   file { '/phpfarm/src/custom/options-5.5.18.sh':
     ensure => present,
     source => 'puppet:///modules/php/phpfarm/src/custom/options-5.5.18.sh',
