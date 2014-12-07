@@ -44,16 +44,16 @@ Using the `fig` command
     <IfModule mod_fastcgi.c>
       AddHandler php .php
 
-      Alias /php /httpd/data/php
-      FastCgiExternalServer /httpd/data/php -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
+      Alias /php55 /httpd/php55
+      FastCgiExternalServer /httpd/php55 -host 127.0.0.1:9000 -idle-timeout 300 -pass-header Authorization
 
-      <Location /php>
+      <Location /php55>
         Order deny,allow
         Deny from all
         Allow from env=REDIRECT_STATUS
       </Location>
 
-      Action php /php
+      Action php /php55
     </IfModule>
 
 ## License
