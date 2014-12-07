@@ -14,7 +14,7 @@ Using the `docker` command:
       -v /httpd/data \
       simpledrupalcloud/data:dev
       
-    CONTAINER="php" && sudo docker run \
+    CONTAINER="php55" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
