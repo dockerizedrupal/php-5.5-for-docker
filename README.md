@@ -19,7 +19,7 @@ Using the `docker` command:
       --volumes-from httpddata \
       -d \
       simpledrupalcloud/php:5.5-dev
-      
+
 Using the `fig` command
 
     TMP="$(mktemp -d)" \
