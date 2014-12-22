@@ -1,13 +1,13 @@
 class php::extension::zend_debugger {
   require php
 
-  exec { 'mkdir -p /phpfarm/inst/php-5.5.18/lib/php/extensions/ZendDebugger-linux-x86_64/php-5.5.x':
+  exec { 'mkdir -p /phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212':
     path => ['/bin']
   }
 
-  file { '/phpfarm/inst/php-5.5.18/lib/php/extensions/ZendDebugger-linux-x86_64/php-5.5.x/ZendDebugger.so':
+  file { '/phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/ZendDebugger.so':
     ensure => present,
-    source => 'puppet:///modules/php/phpfarm/inst/php-5.5.18/lib/php/extensions/ZendDebugger-linux-x86_64/php-5.5.x/ZendDebugger.so',
-    require => Exec['mkdir -p /phpfarm/inst/php-5.5.18/lib/php/extensions/ZendDebugger-linux-x86_64/php-5.5.x']
+    source => 'puppet:///modules/php/tmp/ZendDebugger.so',
+    require => Exec['mkdir -p /phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212']
   }
 }
