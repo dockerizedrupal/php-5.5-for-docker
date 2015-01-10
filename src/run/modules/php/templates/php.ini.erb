@@ -1904,3 +1904,8 @@ apc.serializer = igbinary
 
 apc.rfc1867 = 1
 <% end %>
+
+<% if @php_extension_apd_enable %>
+[apcu]
+zend_extension = /phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/apd.so
+<% end %>
