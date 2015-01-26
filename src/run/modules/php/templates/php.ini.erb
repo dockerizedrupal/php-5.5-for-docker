@@ -1864,8 +1864,8 @@ opcache.fast_shutdown = 1
 zend_extension = /phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/xdebug.so
 
 xdebug.remote_enable = On
+xdebug.remote_host = <%= @php_extension_xdebug_remote_host %>
 xdebug.remote_port = 9000
-xdebug.remote_connect_back = On
 xdebug.remote_handler = "dbgp"
 xdebug.remote_mode = req
 xdebug.idekey = "PHPSTORM"
