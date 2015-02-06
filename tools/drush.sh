@@ -290,6 +290,8 @@ php:
     - mysqld
     - mailcatcher:smtp
     - memcached
+  environment:
+    - DRUSH_VERSION=5
 mailcatcher:
   image: simpledrupalcloud/mailcatcher:latest
   hostname: mailcatcher
