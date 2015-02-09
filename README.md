@@ -6,20 +6,13 @@ A [Docker](https://docker.com/) container for [PHP](http://php.net/) version 5.5
 
 Using the `docker` command:
 
-    CONTAINER="httpddata" && sudo docker run \
-      --name "${CONTAINER}" \
-      -h "${CONTAINER}" \
-      -v /httpd/data \
-      simpledrupalcloud/data:latest
-      
-    CONTAINER="php" && sudo docker run \
+    CONTAINER="php55" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 9000:9000 \
-      --volumes-from httpddata \
       -d \
       simpledrupalcloud/php:5.5
-      
+
 Using the `fig` command
 
     TMP="$(mktemp -d)" \
