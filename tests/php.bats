@@ -21,7 +21,7 @@ teardown() {
   run docker exec "$(container)" /bin/su - root -mc "php -v"
 
   [ "${status}" -eq 0 ]
-  [[ "${output}" == *"PHP 5.4"* ]]
+  [[ "${output}" == *"PHP 5.5"* ]]
 }
 
 @test "php: extension: xdebug" {
