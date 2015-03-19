@@ -59,6 +59,7 @@ class php {
   require php::packages
   require php::phpfarm
   require php::supervisor
+  require php::freetds
 
   bash_exec { 'mkdir -p /phpfarm/inst/php-5.5.18/etc/conf.d': }
 

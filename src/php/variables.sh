@@ -30,7 +30,7 @@ if [ -z "${DRUPAL_VERSION}" ]; then
   DRUPAL_VERSION="8"
 fi
 
-export FACTER_DRUSH_VERSION="${DRUSH_VERSION}"
+export FACTER_DRUPAL_VERSION="${DRUPAL_VERSION}"
 
 if [ -z "${PHP_EXTENSION_OPCACHE_ENABLE}" ]; then
   PHP_EXTENSION_OPCACHE_ENABLE="yes"
@@ -73,3 +73,41 @@ if [ -z "${PHP_EXTENSION_APD_ENABLE}" ]; then
 fi
 
 export FACTER_PHP_EXTENSION_APD_ENABLE="${PHP_EXTENSION_APD_ENABLE}"
+
+for VARIABLE in $(env); do
+  if [[ "${VARIABLE}" == FREETDS_*_HOST=* ]]; then
+    i="$(echo ${VARIABLE} | awk -F '_' '{ print $2 }')"
+
+    FREETDS_HOST="FREETDS_${i}_HOST"
+
+    if [ -z "${!FREETDS_HOST}" ]; then
+      continue
+    fi
+
+    export "FACTER_${FREETDS_HOST}=${!FREETDS_HOST}"
+
+    FREETDS_PORT="FREETDS_${i}_PORT"
+
+    if [ -z "${!FREETDS_PORT}" ]; then
+      declare "${FREETDS_PORT}=1433"
+    fi
+
+    export "FACTER_${FREETDS_PORT}=${!FREETDS_PORT}"
+
+    FREETDS_TDS_VERSION="FREETDS_${i}_TDS_VERSION"
+
+    if [ -z "${!FREETDS_TDS_VERSION}" ]; then
+      declare "${FREETDS_TDS_VERSION}=8.0"
+    fi
+
+    export "FACTER_${FREETDS_TDS_VERSION}=${!FREETDS_TDS_VERSION}"
+
+    FREETDS_SERVER_NAME="FREETDS_${i}_SERVER_NAME"
+
+    if [ -z "${!FREETDS_SERVER_NAME}" ]; then
+      declare "${FREETDS_SERVER_NAME}=server-${i}"
+    fi
+
+    export "FACTER_${FREETDS_SERVER_NAME}=${!FREETDS_SERVER_NAME}"
+  fi
+done

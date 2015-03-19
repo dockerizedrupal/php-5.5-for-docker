@@ -57,6 +57,9 @@ define bash_exec (
 
 class php {
   include php::smtp
+  include php::drush
+  include php::coder
+  include php::phpcs
 
   if $mysqld_host {
     include php::mysqld
@@ -69,8 +72,6 @@ class php {
   if $redis_host {
     include php::redis
   }
-
-  include php::drush
 
   file { '/phpfarm/inst/php-5.5.18/lib/php.ini':
     ensure => present,
