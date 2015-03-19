@@ -37,5 +37,6 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --with-gettext \
   --with-pspell \
   --with-ldap=/usr \
-  --with-config-file-scan-dir=/phpfarm/inst/php-5.5.18/etc/conf.d \
+  --with-config-file-scan-dir=/usr/local/src/phpfarm/inst/php-5.5.18/etc/conf.d \
+  --with-mssql=/usr/local/freetds \
 "

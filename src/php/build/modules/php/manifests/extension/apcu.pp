@@ -14,14 +14,14 @@ class php::extension::apcu {
     require => Bash_exec['cd /tmp && tar xzf apcu-4.0.7.tgz']
   }
 
-  bash_exec { 'cd /tmp/apcu-4.0.7 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.5.18':
+  bash_exec { 'cd /tmp/apcu-4.0.7 && ./configure --with-php-config=/usr/local/src/phpfarm/inst/bin/php-config-5.5.18':
     timeout => 0,
     require => Bash_exec['cd /tmp/apcu-4.0.7 && phpize-5.5.18']
   }
 
   bash_exec { 'cd /tmp/apcu-4.0.7 && make':
     timeout => 0,
-    require => Bash_exec['cd /tmp/apcu-4.0.7 && ./configure --with-php-config=/phpfarm/inst/bin/php-config-5.5.18']
+    require => Bash_exec['cd /tmp/apcu-4.0.7 && ./configure --with-php-config=/usr/local/src/phpfarm/inst/bin/php-config-5.5.18']
   }
 
   bash_exec { 'cd /tmp/apcu-4.0.7 && make install':

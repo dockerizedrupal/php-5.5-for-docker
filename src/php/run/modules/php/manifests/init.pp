@@ -73,7 +73,7 @@ class php {
     include php::redis
   }
 
-  file { '/phpfarm/inst/php-5.5.18/lib/php.ini':
+  file { '/usr/local/src/phpfarm/inst/php-5.5.18/lib/php.ini':
     ensure => present,
     content => template('php/php.ini.erb')
   }

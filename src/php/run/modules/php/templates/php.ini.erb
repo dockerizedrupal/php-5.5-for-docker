@@ -719,7 +719,7 @@ user_dir =
 ; extension_dir = "./"
 ; On windows:
 ; extension_dir = "ext"
-extension_dir = "/phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/"
+extension_dir = "/usr/local/src/phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/"
 
 ; Directory where the temporary files should be placed.
 ; Defaults to the system default (see sys_get_temp_dir)
@@ -1846,7 +1846,7 @@ extension = igbinary.so
 
 <% if @php_extension_opcache_enable == "yes" %>
 [opcache]
-zend_extension = /phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/opcache.so
+zend_extension = /usr/local/src/phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/opcache.so
 
 opcache.enable = 1
 opcache.enable_cli = 1
@@ -1861,7 +1861,7 @@ opcache.fast_shutdown = 1
 
 <% if @php_extension_xdebug_enable == "yes" %>
 [xdebug]
-zend_extension = /phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/xdebug.so
+zend_extension = /usr/local/src/phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/xdebug.so
 
 xdebug.remote_enable = On
 xdebug.remote_port = 9000
@@ -1907,5 +1907,5 @@ apc.rfc1867 = 1
 
 <% if @php_extension_apd_enable == "yes" %>
 [apcu]
-zend_extension = /phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/apd.so
+zend_extension = /usr/local/src/phpfarm/inst/php-5.5.18/lib/php/extensions/no-debug-non-zts-20121212/apd.so
 <% end %>
