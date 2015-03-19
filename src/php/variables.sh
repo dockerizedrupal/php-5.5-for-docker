@@ -26,8 +26,8 @@ REDIS_HOST="$(echo "${REDIS_PORT}" | sed 's/tcp:\/\///')"
 export FACTER_REDIS_HOST="$(echo "${REDIS_HOST}" | cut -d ":" -f1)"
 export FACTER_REDIS_PORT="$(echo "${REDIS_HOST}" | cut -d ":" -f2)"
 
-if [ -z "${DRUSH_VERSION}" ]; then
-  DRUSH_VERSION="7"
+if [ -z "${DRUPAL_VERSION}" ]; then
+  DRUPAL_VERSION="8"
 fi
 
 export FACTER_DRUSH_VERSION="${DRUSH_VERSION}"
