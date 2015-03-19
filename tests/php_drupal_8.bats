@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-FIG_FILE="${BATS_TEST_DIRNAME}/php_drush_7_drupal_8.yml"
+FIG_FILE="${BATS_TEST_DIRNAME}/php_drupal_8.yml"
 
 container() {
   echo "$(fig -f ${FIG_FILE} ps php | grep php | awk '{ print $1 }')"
@@ -28,9 +28,35 @@ teardown() {
   fig -f "${FIG_FILE}" rm --force
 }
 
-@test "php: drush 7: drupal 8" {
-  run docker exec "$(container)" /bin/su - root -mc "drush -r /httpd/data/ status"
+@test "php: drupal 8" {
+  run docker exec "$(container)" /bin/su - root -mc "drush -r /httpd/data/ status | grep 'Drupal bootstrap'"
 
   [ "${status}" -eq 0 ]
-  [[ "$(echo ${output} | grep 'Drupal bootstrap')" == *"Successful"* ]]
+  [[ "${output}" == *"Successful"* ]]
+}
+
+@test "php: drupal 8: drush 7" {
+  run docker exec "$(container)" /bin/su - root -mc "drush --version"
+
+  [ "${status}" -eq 0 ]
+  [[ "${output}" == *"7.0-dev"* ]]
+}
+
+@test "php: drupal 8: phpcs" {
+  run docker exec "$(container)" /bin/su - root -mc "phpcs --version"
+
+  [ "${status}" -eq 0 ]
+  [[ "${output}" == *"2.3.0"* ]]
+}
+
+@test "php: drupal 8: phpcs: phpcompatibility" {
+  run docker exec "$(container)" /bin/su - root -mc "phpcs -i | grep PHPCompatibility"
+
+  [ "${status}" -eq 0 ]
+}
+
+@test "php: drupal 8: phpcs: drupal" {
+  run docker exec "$(container)" /bin/su - root -mc "phpcs -i | grep Drupal"
+
+  [ "${status}" -eq 0 ]
 }

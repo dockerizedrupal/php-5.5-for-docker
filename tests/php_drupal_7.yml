@@ -31,4 +31,4 @@ php:
   links:
     - mysqld
   environment:
-    - DRUSH_VERSION=7
+    - DRUPAL_VERSION=7
