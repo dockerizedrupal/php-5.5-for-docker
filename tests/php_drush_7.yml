@@ -1,5 +1,0 @@
-php:
-  image: simpledrupalcloud/php:5.5
-  hostname: php
-  environment:
-    - DRUSH_VERSION=7
