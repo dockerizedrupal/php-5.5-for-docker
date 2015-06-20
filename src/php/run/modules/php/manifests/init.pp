@@ -11,6 +11,9 @@ class php {
   include php::max_execution_time
   include php::max_input_vars
   include php::memory_limit
+  include php::display_errors
+  include php::display_startup_errors
+  include php::error_reporting
 
   if $mysqld_host {
     include php::mysqld
@@ -20,26 +23,26 @@ class php {
     include php::freetds
   }
 
-  if $opcache {
+  if $opcache == "On" {
     include php::opcache
   }
 
-  if $xdebug {
+  if $xdebug == "On" {
     include php::xdebug
   }
 
   include php::memcached
   include php::redis
 
-  if $blackfire {
+  if $blackfire == "On" {
     include php::blackfire
   }
 
-  if $apcu {
+  if $apcu == "On" {
     include php::apcu
   }
 
-  if $apd {
+  if $apd == "On" {
     include php::apd
   }
 
