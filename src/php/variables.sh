@@ -74,10 +74,6 @@ fi
 
 export FACTER_MEMORY_LIMIT="${MEMORY_LIMIT}"
 
-if [ -z "${OPCACHE}" ]; then
-  OPCACHE="On"
-fi
-
 if [ -z "${DISPLAY_ERRORS}" ]; then
   DISPLAY_ERRORS="On"
 fi
@@ -89,6 +85,10 @@ if [ -z "${ERROR_REPORTING}" ]; then
 fi
 
 export FACTER_ERROR_REPORTING="${ERROR_REPORTING}"
+
+if [ -z "${OPCACHE}" ]; then
+  OPCACHE="On"
+fi
 
 export FACTER_OPCACHE="${OPCACHE}"
 
