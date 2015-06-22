@@ -25,7 +25,11 @@ Using the `docker` command:
       -e DISPLAY_STARTUP_ERRORS="1" \
       -e ERROR_REPORTING="E_ALL" \
       -e OPCACHE="On" \
+      -e OPCACHE_MEMORY_CONSUMPTION="2048" \
       -e XDEBUG="On" \
+      -e XDEBUG_REMOTE_PORT="9000" \
+      -e XDEBUG_REMOTE_HOST="127.0.0.1" \
+      -e XDEBUG_REMOTE_CONNECT_BACK="On" \
       -e XDEBUG_IDEKEY="PHPSTORM" \
       -e MEMCACHED="On" \
       -e REDIS="On" \
