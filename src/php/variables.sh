@@ -98,11 +98,11 @@ fi
 
 export FACTER_OPCACHE="${OPCACHE}"
 
-if [ -z "${XDEBUG}" ]; then
-  XDEBUG="On"
+if [ -z "${XDEBUG_IDEKEY}" ]; then
+  XDEBUG_IDEKEY="PHPSTORM"
 fi
 
-export FACTER_XDEBUG="${XDEBUG}"
+export FACTER_XDEBUG_IDEKEY="${XDEBUG_IDEKEY}"
 
 if [ -z "${MEMCACHED}" ]; then
   MEMCACHED="On"
