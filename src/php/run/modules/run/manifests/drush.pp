@@ -1,4 +1,6 @@
 class run::drush {
+  require run::user
+
   if ($drupal_version == '7') or ($drupal_version == '8') {
     file { '/usr/local/bin/drush':
       ensure => link,
