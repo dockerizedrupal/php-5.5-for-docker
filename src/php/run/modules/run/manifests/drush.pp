@@ -9,5 +9,8 @@ class run::drush {
       ensure => link,
       target => '/usr/local/src/drush7/drush.complete.sh'
     }
+
+    bash_exec { "chown -R -h $user_id /usr/local/src/drush7": }
+    bash_exec { "chgrp -R -h $group_id /usr/local/src/drush7": }
   }
 }
