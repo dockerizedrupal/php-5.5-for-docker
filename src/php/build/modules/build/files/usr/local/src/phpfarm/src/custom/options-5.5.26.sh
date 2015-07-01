@@ -14,6 +14,7 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --enable-calendar \
   --enable-mbstring \
   --enable-zip \
+  --enable-pcntl \
   --with-fpm-user=container \
   --with-fpm-group=container \
   --with-curl \
@@ -39,4 +40,5 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --with-ldap=/usr \
   --with-config-file-scan-dir=/usr/local/src/phpfarm/inst/php-5.5.26/etc/conf.d \
   --with-mssql=/usr/local/freetds \
+  --with-readline \
 "
