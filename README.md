@@ -1,4 +1,4 @@
-# docker-php
+# docker-php-5.5
 
 A [Docker](https://docker.com/) image for [PHP](http://php.net/) version 5.5 that runs PHP in FPM (FastCGI Process Manager) mode.
 
