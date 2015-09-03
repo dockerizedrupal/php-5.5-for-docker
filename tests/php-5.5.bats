@@ -17,7 +17,7 @@ teardown() {
   docker-compose -f "${DOCKER_COMPOSE_FILE}" rm --force
 }
 
-@test "php" {
+@test "php-5.5" {
   run docker exec "$(container)" /bin/su - root -lc "php -v"
 
   [ "${status}" -eq 0 ]
