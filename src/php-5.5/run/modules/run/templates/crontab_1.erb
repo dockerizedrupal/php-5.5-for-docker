@@ -1,5 +1,5 @@
-<% if @crontab_1_mailto and !@crontab_1_mailto.empty? %>
+<% if @crontab_1_mailto and !@crontab_1_mailto.empty? -%>
 MAILTO=<%= @crontab_1_mailto %>
-<% end %>
+<% end -%>
 
-<%= @crontab_1_expression %> container <%= @crontab_1_command %>
+<%= @crontab_1_expression %> container <%= @crontab_1_command %> >> /var/log/cron.log 2>&
