@@ -1,6 +1,4 @@
-class run::crontab {
-  require run::user
-
+class run::cron::crontab {
   if $crontab_1_expression and $crontab_1_command {
     file { '/etc/cron.d/crontab_1':
       ensure => present,
@@ -23,11 +21,5 @@ class run::crontab {
       content => template('run/crontab_3.erb'),
       mode => 644
     }
-  }
-
-  bash_exec { 'touch /var/log/cron.log': }
-
-  bash_exec { 'chown container.container /var/log/cron.log':
-    require => Bash_exec['touch /var/log/cron.log']
   }
 }

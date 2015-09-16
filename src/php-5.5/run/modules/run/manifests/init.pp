@@ -7,7 +7,7 @@ class run {
   include run::coder
   include run::phpcs
   include run::timezone
-  include run::crontab
+  include run::cron
 
   if $php_ini_blackfire == "On" and $php_ini_blackfire_server_id and $php_ini_blackfire_server_token {
     include run::blackfire
