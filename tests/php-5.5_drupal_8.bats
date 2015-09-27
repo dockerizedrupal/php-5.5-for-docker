@@ -7,12 +7,12 @@ container() {
 }
 
 setup_drupal() {
-  docker exec "$(container)" /bin/su - container -mc "wget http://ftp.drupal.org/files/projects/drupal-8.0.0-beta15.tar.gz -O /tmp/drupal-8.0.0-beta15.tar.gz"
-  docker exec "$(container)" /bin/su - container -mc "tar xzf /tmp/drupal-8.0.0-beta15.tar.gz -C /tmp"
-  docker exec "$(container)" /bin/su - container -mc "rsync -avz /tmp/drupal-8.0.0-beta15/ /apache/data"
-  docker exec "$(container)" /bin/su - container -mc "cp /apache/data/sites/default/default.services.yml /apache/data/sites/default/services.yml"
-  docker exec "$(container)" /bin/su - container -mc "drush -r /apache/data -y site-install --db-url=mysqli://container:container@localhost/drupal --account-name=admin --account-pass=admin"
-  docker exec "$(container)" /bin/su - container -mc "chown container.container /apache/data"
+  docker exec "$(container)" /bin/su - container -lc "wget http://ftp.drupal.org/files/projects/drupal-8.0.0-beta15.tar.gz -O /tmp/drupal-8.0.0-beta15.tar.gz"
+  docker exec "$(container)" /bin/su - container -lc "tar xzf /tmp/drupal-8.0.0-beta15.tar.gz -C /tmp"
+  docker exec "$(container)" /bin/su - container -lc "rsync -avz /tmp/drupal-8.0.0-beta15/ /apache/data"
+  docker exec "$(container)" /bin/su - container -lc "cp /apache/data/sites/default/default.services.yml /apache/data/sites/default/services.yml"
+  docker exec "$(container)" /bin/su - container -lc "drush -r /apache/data -y site-install --db-url=mysqli://container:container@localhost/drupal --account-name=admin --account-pass=admin"
+  docker exec "$(container)" /bin/su - container -lc "chown container.container /apache/data"
 }
 
 setup() {
