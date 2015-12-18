@@ -1,4 +1,4 @@
-class build::php55::extension::xdebug {
+class build::php55::extensions::xdebug {
   require build::php55
 
   file { '/tmp/xdebug-2.2.6.tgz':

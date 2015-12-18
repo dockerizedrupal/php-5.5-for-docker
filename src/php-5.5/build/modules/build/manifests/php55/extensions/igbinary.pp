@@ -1,4 +1,4 @@
-class build::php55::extension::igbinary {
+class build::php55::extensions::igbinary {
   require build::php55
 
   file { '/tmp/igbinary-1.2.1.tgz':

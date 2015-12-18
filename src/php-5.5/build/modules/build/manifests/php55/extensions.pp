@@ -1,10 +1,10 @@
 class build::php55::extensions {
   require build::php55
 
-  include build::php55::extension::xdebug
-  include build::php55::extension::memcached
-  include build::php55::extension::redis
-  include build::php55::extension::blackfire
-  include build::php55::extension::apcu
-  include build::php55::extension::apd
+  include build::php55::extensions::xdebug
+  include build::php55::extensions::memcached
+  include build::php55::extensions::redis
+  include build::php55::extensions::blackfire
+  include build::php55::extensions::apcu
+  include build::php55::extensions::apd
 }
