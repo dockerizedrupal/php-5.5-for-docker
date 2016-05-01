@@ -2,4 +2,4 @@ php:
   image: dockerizedrupal/php-5.5:1.2.8
   hostname: php
   environment:
-    - PHP_FPM_PM_PROCESS_IDLE_TIMEOUT=20s
+    - SMTP_FROM=smtp_from
