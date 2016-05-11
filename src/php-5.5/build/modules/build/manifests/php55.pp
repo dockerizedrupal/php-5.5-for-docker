@@ -4,51 +4,51 @@ class build::php55 {
   require build::phpfarm
   require build::freetds
 
-  bash_exec { 'mkdir -p /usr/local/src/phpfarm/inst/php-5.5.34/etc/conf.d': }
+  bash_exec { 'mkdir -p /usr/local/src/phpfarm/inst/php-5.5.35/etc/conf.d': }
 
-  bash_exec { 'mkdir -p /usr/local/src/phpfarm/inst/php-5.5.34/etc/fpm.d': }
+  bash_exec { 'mkdir -p /usr/local/src/phpfarm/inst/php-5.5.35/etc/fpm.d': }
 
-  bash_exec { 'mkdir -p /usr/local/src/phpfarm/inst/php-5.5.34/etc/pool.d': }
+  bash_exec { 'mkdir -p /usr/local/src/phpfarm/inst/php-5.5.35/etc/pool.d': }
 
-  bash_exec { 'mkdir -p /usr/local/src/phpfarm/inst/php-5.5.34/lib/php/extensions/no-debug-non-zts-20121212': }
+  bash_exec { 'mkdir -p /usr/local/src/phpfarm/inst/php-5.5.35/lib/php/extensions/no-debug-non-zts-20121212': }
 
-  file { '/tmp/php-5.5.34.tar.gz':
+  file { '/tmp/php-5.5.35.tar.gz':
     ensure => present,
-    source => 'puppet:///modules/build/tmp/php-5.5.34.tar.gz'
+    source => 'puppet:///modules/build/tmp/php-5.5.35.tar.gz'
   }
 
-  bash_exec { 'cd /tmp && tar xzf php-5.5.34.tar.gz':
-    require => File['/tmp/php-5.5.34.tar.gz']
+  bash_exec { 'cd /tmp && tar xzf php-5.5.35.tar.gz':
+    require => File['/tmp/php-5.5.35.tar.gz']
   }
 
-  bash_exec { 'mv /tmp/php-5.5.34 /usr/local/src/phpfarm/src/php-5.5.34':
-    require => Bash_exec['cd /tmp && tar xzf php-5.5.34.tar.gz']
+  bash_exec { 'mv /tmp/php-5.5.35 /usr/local/src/phpfarm/src/php-5.5.35':
+    require => Bash_exec['cd /tmp && tar xzf php-5.5.35.tar.gz']
   }
 
-  file { '/usr/local/src/phpfarm/src/custom/options-5.5.34.sh':
+  file { '/usr/local/src/phpfarm/src/custom/options-5.5.35.sh':
     ensure => present,
-    source => 'puppet:///modules/build/usr/local/src/phpfarm/src/custom/options-5.5.34.sh',
+    source => 'puppet:///modules/build/usr/local/src/phpfarm/src/custom/options-5.5.35.sh',
     mode => 755,
-    require => Bash_exec['mv /tmp/php-5.5.34 /usr/local/src/phpfarm/src/php-5.5.34']
+    require => Bash_exec['mv /tmp/php-5.5.35 /usr/local/src/phpfarm/src/php-5.5.35']
   }
 
-  bash_exec { '/usr/local/src/phpfarm/src/main.sh 5.5.34':
+  bash_exec { '/usr/local/src/phpfarm/src/main.sh 5.5.35':
     timeout => 0,
-    require => File['/usr/local/src/phpfarm/src/custom/options-5.5.34.sh']
+    require => File['/usr/local/src/phpfarm/src/custom/options-5.5.35.sh']
   }
 
-  bash_exec { 'rm -rf /usr/local/src/phpfarm/src/php-5.5.34':
-    require => Bash_exec['/usr/local/src/phpfarm/src/main.sh 5.5.34']
+  bash_exec { 'rm -rf /usr/local/src/phpfarm/src/php-5.5.35':
+    require => Bash_exec['/usr/local/src/phpfarm/src/main.sh 5.5.35']
   }
 
-  file { '/usr/local/src/phpfarm/inst/php-5.5.34/etc/php-fpm.conf':
+  file { '/usr/local/src/phpfarm/inst/php-5.5.35/etc/php-fpm.conf':
     ensure => present,
-    source => 'puppet:///modules/build/usr/local/src/phpfarm/inst/php-5.5.34/etc/php-fpm.conf',
+    source => 'puppet:///modules/build/usr/local/src/phpfarm/inst/php-5.5.35/etc/php-fpm.conf',
     mode => 644,
-    require => Bash_exec['/usr/local/src/phpfarm/src/main.sh 5.5.34']
+    require => Bash_exec['/usr/local/src/phpfarm/src/main.sh 5.5.35']
   }
 
-  bash_exec { 'switch-phpfarm 5.5.34':
-    require => Bash_exec['/usr/local/src/phpfarm/src/main.sh 5.5.34']
+  bash_exec { 'switch-phpfarm 5.5.35':
+    require => Bash_exec['/usr/local/src/phpfarm/src/main.sh 5.5.35']
   }
 }
