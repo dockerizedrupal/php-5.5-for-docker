@@ -16,6 +16,7 @@ class build::php55::packages {
       'libsasl2-dev',
       'libldap2-dev',
       'pkg-config',
+      'libpq-dev',
       'libreadline-dev'
     ]:
     ensure => present
