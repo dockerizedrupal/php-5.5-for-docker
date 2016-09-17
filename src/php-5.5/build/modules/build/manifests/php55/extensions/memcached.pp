@@ -36,18 +36,18 @@ class build::php55::extensions::memcached {
     require => File['/tmp/memcached-2.2.0.tgz']
   }
 
-  bash_exec { 'cd /tmp/memcached-2.2.0 && phpize-5.5.35':
+  bash_exec { 'cd /tmp/memcached-2.2.0 && phpize-5.5.38':
     require => Bash_exec['cd /tmp && tar xzf memcached-2.2.0.tgz']
   }
 
-  bash_exec { 'cd /tmp/memcached-2.2.0 && ./configure --with-php-config=/usr/local/src/phpfarm/inst/bin/php-config-5.5.35 --enable-memcached-igbinary':
+  bash_exec { 'cd /tmp/memcached-2.2.0 && ./configure --with-php-config=/usr/local/src/phpfarm/inst/bin/php-config-5.5.38 --enable-memcached-igbinary':
     timeout => 0,
-    require => Bash_exec['cd /tmp/memcached-2.2.0 && phpize-5.5.35']
+    require => Bash_exec['cd /tmp/memcached-2.2.0 && phpize-5.5.38']
   }
 
   bash_exec { 'cd /tmp/memcached-2.2.0 && make':
     timeout => 0,
-    require => Bash_exec['cd /tmp/memcached-2.2.0 && ./configure --with-php-config=/usr/local/src/phpfarm/inst/bin/php-config-5.5.35 --enable-memcached-igbinary']
+    require => Bash_exec['cd /tmp/memcached-2.2.0 && ./configure --with-php-config=/usr/local/src/phpfarm/inst/bin/php-config-5.5.38 --enable-memcached-igbinary']
   }
 
   bash_exec { 'cd /tmp/memcached-2.2.0 && make install':
